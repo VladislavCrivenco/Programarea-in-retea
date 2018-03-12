@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PR_Lab2
 {
-    class Category
+    class Category : ICsvParseble<Category>
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -34,9 +34,9 @@ namespace PR_Lab2
             return Id.GetHashCode();
         }
 
-        public static Category Parse(string csv)
+        public Category Parse(string csvLine)
         {
-            var elems = csv.Split(',');
+            var elems = csvLine.Split(',');
             try
             {
                 if (elems.Length != 3 && elems.Length != 2)
@@ -79,7 +79,7 @@ namespace PR_Lab2
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Fail to parse {0} to Order object : {1}", csv, e.Message);
+                Debug.WriteLine("Fail to parse {0} to Order object : {1}", csvLine, e.Message);
                 return null;
             }
         }

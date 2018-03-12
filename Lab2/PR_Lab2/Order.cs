@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace PR_Lab2
 {
-    class Order
+    class Order : ICsvParseble<Order>
     {
         public string Id { get; set; }
         public float Total { get; set; }
         public string CategoryId { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public static Order Parse(string csv)
+        public Order Parse(string csvLine)
         {
-            var elems = csv.Split(',');
+            var elems = csvLine.Split(',');
             try
             {
                 if (elems.Length != 4)
@@ -55,7 +55,7 @@ namespace PR_Lab2
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Fail to parse {0} to Order object : {1}", csv, e.Message);
+                Debug.WriteLine("Fail to parse {0} to Order object : {1}", csvLine, e.Message);
                 return null;
             }
         }

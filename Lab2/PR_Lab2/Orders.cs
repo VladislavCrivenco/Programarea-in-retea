@@ -14,7 +14,12 @@ namespace PR_Lab2
     {
         private static string _url = "https://evil-legacy-service.herokuapp.com/api/v101/orders/";
         private static string OrderFilePath = "C:\\EvilApp\\Orders.txt";
+        private static CsvParser<Order> _parser;
 
+        static Orders()
+        {
+            _parser = new CsvParser<Order>(new Order());
+        }
         public static async Task Get(IProgress<List<Order>> progress, DateTime from, DateTime to)
         {
             var result = new List<Order>();
@@ -46,7 +51,7 @@ namespace PR_Lab2
 
             if (response.status == HttpStatusCode.OK)
             {
-                var result = CsvUtil.OrdersFromCsv(response.data);
+                var result = _parser.ToList(response.data);
                 UpdateDisk(result);
                 return result;
             }

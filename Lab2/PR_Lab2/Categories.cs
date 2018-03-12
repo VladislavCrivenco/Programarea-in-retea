@@ -16,6 +16,12 @@ namespace PR_Lab2
     {
         private static string _url = "https://evil-legacy-service.herokuapp.com/api/v101/categories/";
         private static string CategoryFilePath = "C:\\EvilApp\\Category.txt";
+        private static CsvParser<Category> _parser;
+
+        static Categories()
+        {
+            _parser = new CsvParser<Category>(new Category());
+        }
 
         public static async Task Get(IProgress<List<Category>> progress)
         {
@@ -36,15 +42,6 @@ namespace PR_Lab2
             }
 
             progress.Report(new List<Category>());
-
-            //SaveToDisk(localResult, remoteResult);
-
-            //    var Food = new Category { Id = 24, Name = "Food & Grocery" };
-            //    var GPS = new Category { Id = 23, Name = "GPS & Cameras" };
-            //    var Wheels = new Category { Id = 22, Name = "Wheels" };
-            //    var Tires = new Category { Id = 21, Name = "Tires", Parent = Wheels };
-
-            //    return new List<Category> { Food, GPS, Wheels, Tires };
         }
 
         private static async Task<List<Category>> GetRemote()
@@ -53,7 +50,7 @@ namespace PR_Lab2
             if (response.status == HttpStatusCode.OK)
             {
                 SaveToDisk(response.data);
-                return CsvUtil.CategoriesFromCsv(response.data);
+                return _parser.ToList(response.data);
             }
             return null;
         }
@@ -71,7 +68,7 @@ namespace PR_Lab2
                 using (var stream = file.OpenText())
                 {
                     var csv = stream.ReadToEnd();
-                    return CsvUtil.CategoriesFromCsv(csv);
+                    return _parser.ToList(csv);
                 }
             }
             catch (Exception e)
@@ -98,5 +95,7 @@ namespace PR_Lab2
                 }
             }
         }
+
+
     }
 }
