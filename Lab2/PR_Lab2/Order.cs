@@ -11,7 +11,7 @@ namespace PR_Lab2
     class Order : ICsvParseble<Order>
     {
         public string Id { get; set; }
-        public float Total { get; set; }
+        public decimal Total { get; set; }
         public string CategoryId { get; set; }
         public DateTime CreatedAt { get; set; }
 

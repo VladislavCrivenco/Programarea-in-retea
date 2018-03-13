@@ -37,23 +37,23 @@ namespace PR_Lab2
 
         public async Task RefreshAsync(DateTime from, DateTime to)
         {
-            var progress = new Progress<List<Order>>(s => Refresh(s));
-            await Orders.Get(progress, from, to);
+            var progress = new Progress<CategoryOrdersView>(s => Refresh(s));
+            await CategoryOrdersView.GetInstanceAsync(progress);
         }
 
-        private void Refresh(List<Order> list)
+        private void Refresh(CategoryOrdersView categoryOrders)
         {
             BeginUpdate();
 
             foreach (var rootNode in Nodes)
             {
-                RefreshNode(rootNode as Node, list);
+                RefreshNode(rootNode as Node, categoryOrders);
             }
 
             EndUpdate();
         }
 
-        private float RefreshNode(Node node, List<Order> orders)
+        private float RefreshNode(Node node, CategoryOrdersView orders)
         {
             if (node == null)
             {
@@ -62,9 +62,7 @@ namespace PR_Lab2
             }
             if (!node.HasChildren)
             {
-                //Debugger.Break();
-
-                var total = orders.Where(x => x.CategoryId == node[2] as string).Sum(x => x.Total);
+                var total = orders.Get(node[2]);
                 node[1] = total.ToString();
                 return total;
             }
