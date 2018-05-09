@@ -1,0 +1,70 @@
+﻿<Window x:Class="VCmail.CreateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VCmail"
+        mc:Ignorable="d"
+        Title="CreateWindow" Height="300" Width="300" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="72*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="BtnSend" Click="BtnSend_Click" >Send</Button>
+        </Grid>
+        <DockPanel Grid.Row="0" LastChildFill="False">
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="To"></TextBlock>
+            <TextBox Grid.Column="1" Name="TextBoxTo"></TextBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Copy"></TextBlock>
+            <TextBox Grid.Column="1" Name="TextBoxCopy"></TextBox>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Hidden Copy"></TextBlock>
+            <TextBox Grid.Column="1" Name="TextBoxHiddenCopy"></TextBox>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Subject"></TextBlock>
+            <TextBox Grid.Column="1" Name="TextBoxSubject"></TextBox>
+        </Grid>
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <Button Name="BtnAddAttachment" Click="BtnAddAttachment_Click" >Add Attachment</Button>
+            <StackPanel Orientation="Horizontal" Name="StackPanelAttachments">
+                
+            </StackPanel>
+        </StackPanel>
+        <TextBox Grid.Row="6" Name="MsgTextBox">
+            
+        </TextBox>
+    </Grid>
+</Window>
