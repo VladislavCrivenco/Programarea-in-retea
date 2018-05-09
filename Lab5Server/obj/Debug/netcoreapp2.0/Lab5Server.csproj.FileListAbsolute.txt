@@ -1,0 +1,10 @@
+E:\UTM\Programarea-in-retea\Lab5Server\bin\Debug\netcoreapp2.0\Lab5Server.deps.json
+E:\UTM\Programarea-in-retea\Lab5Server\bin\Debug\netcoreapp2.0\Lab5Server.runtimeconfig.json
+E:\UTM\Programarea-in-retea\Lab5Server\bin\Debug\netcoreapp2.0\Lab5Server.runtimeconfig.dev.json
+E:\UTM\Programarea-in-retea\Lab5Server\bin\Debug\netcoreapp2.0\Lab5Server.dll
+E:\UTM\Programarea-in-retea\Lab5Server\bin\Debug\netcoreapp2.0\Lab5Server.pdb
+E:\UTM\Programarea-in-retea\Lab5Server\obj\Debug\netcoreapp2.0\Lab5Server.csproj.CoreCompileInputs.cache
+E:\UTM\Programarea-in-retea\Lab5Server\obj\Debug\netcoreapp2.0\Lab5Server.AssemblyInfoInputs.cache
+E:\UTM\Programarea-in-retea\Lab5Server\obj\Debug\netcoreapp2.0\Lab5Server.AssemblyInfo.cs
+E:\UTM\Programarea-in-retea\Lab5Server\obj\Debug\netcoreapp2.0\Lab5Server.dll
+E:\UTM\Programarea-in-retea\Lab5Server\obj\Debug\netcoreapp2.0\Lab5Server.pdb
